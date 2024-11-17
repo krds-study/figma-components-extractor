@@ -1,8 +1,8 @@
-import path from "node:path";
-import { defineConfig } from "vite";
-import generateFile from "vite-plugin-generate-file";
-import { viteSingleFile } from "vite-plugin-singlefile";
-import figmaManifest from "./figma.manifest";
+import path from "node:path"
+import { defineConfig } from "vite"
+import generateFile from "vite-plugin-generate-file"
+import { viteSingleFile } from "vite-plugin-singlefile"
+import figmaManifest from "./figma.manifest"
 
 export default defineConfig(({ mode }) => ({
   plugins: [
@@ -14,15 +14,15 @@ export default defineConfig(({ mode }) => ({
     }),
   ],
   build: {
-    minify: mode === 'production',
-    sourcemap: mode !== 'production' ? 'inline' : false,
-    target: 'es2017',
+    minify: mode === "production",
+    sourcemap: mode !== "production" ? "inline" : false,
+    target: "es2017",
     emptyOutDir: false,
     outDir: path.resolve("dist"),
     rollupOptions: {
-      input: path.resolve('src/plugin/plugin.ts'),
+      input: path.resolve("src/plugin/plugin.ts"),
       output: {
-        entryFileNames: 'plugin.js',
+        entryFileNames: "plugin.js",
       },
     },
   },
@@ -32,4 +32,4 @@ export default defineConfig(({ mode }) => ({
       "@plugin": path.resolve("src/plugin"),
     },
   },
-}));
+}))
