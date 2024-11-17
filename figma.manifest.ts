@@ -1,11 +1,20 @@
 // https://www.figma.com/plugin-docs/manifest/
 export default {
-  name: "Figma-Plugin-React-Vite",
+  name: "figma-components-extractor",
   id: "1222852692367737510",
   api: "1.0.0",
   main: "plugin.js",
-  ui: "index.html",
-  capabilities: [],
+  capabilities: ["codegen"],
+  codegenLanguages: [
+    {
+      label: "css object",
+      value: "javascript",
+    },
+  ],
   enableProposedApi: false,
-  editorType: ["figma", "figjam"],
-};
+  documentAccess: "dynamic-page",
+  editorType: ["dev"],
+  networkAccess: {
+    allowedDomains: ["none"],
+  },
+}
